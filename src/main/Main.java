@@ -38,8 +38,6 @@ public static ArrayList<Step> randomsteps = new ArrayList<>();
 	    System.out.println("Enter a .csv file name to read:");
 	    path = scanner.nextLine();
 	    file = new File(path);
-//	    System.out.println("Enter a file name to save to (with extension): ");
-//	    path = scanner.nextLine();
 	    htmlfile = new File("htmltext.txt");
 
 	    if (file.getPath() != null && htmlfile.getPath() != null) {
