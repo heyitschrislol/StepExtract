@@ -32,8 +32,17 @@ public static ArrayList<Step> randomsteps = new ArrayList<>();
 	File file;
 	File htmlfile;
 	String path;
+	String os = System.getProperty("os.name").toLowerCase();
+	Process process;
 	try {
-	    Runtime.getRuntime().exec(new String[] {"cmd"}); 
+	    if (os.indexOf("win") >= 0) {
+		process = Runtime.getRuntime().exec("cmd");
+
+	    } else if (os.indexOf("mac") >= 0) {
+		process = Runtime.getRuntime().exec("/usr/bin/open -a Terminal");
+	    } else {
+		process = Runtime.getRuntime().exec("cmd");
+	    }
 	    Scanner scanner = new Scanner(System.in);
 	    System.out.println("Enter a .csv file name to read:");
 	    path = scanner.nextLine();
