@@ -18,7 +18,8 @@ import java.util.Scanner;
  * @author Chris
  */
 public class Main {
-public static ArrayList<Step> randomsteps = new ArrayList<>();
+
+    public static ArrayList<Step> randomsteps = new ArrayList<>();
     public static ArrayList<Step> teststeps = new ArrayList<>();
     public static ArrayList<FormattedItem> jsonsteps = new ArrayList<>();
     public static ArrayList<String> rawlines;
@@ -39,15 +40,21 @@ public static ArrayList<Step> randomsteps = new ArrayList<>();
 		process = Runtime.getRuntime().exec("cmd");
 
 	    } else if (os.indexOf("mac") >= 0) {
-		process = Runtime.getRuntime().exec("/usr/bin/open -a Terminal");
-	    } else {
+//	    String[] arguments = new String[] {"/usr/bin/open -a Terminal", ""
+	    process = Runtime.getRuntime().exec("/usr/bin/open -a Terminal");
+	    } 
+	    else {
 		process = Runtime.getRuntime().exec("cmd");
 	    }
-	    Scanner scanner = new Scanner(System.in);
 	    System.out.println("Enter a .csv file name to read:");
+	    Scanner scanner = new Scanner(System.in);
+//	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//	    path = br.readLine();
 	    path = scanner.nextLine();
+
 	    file = new File(path);
-	    htmlfile = new File("htmltext.txt");
+	    htmlfile = new File(file.getParent() + "/htmltext.txt");
+	    
 
 	    if (file.getPath() != null && htmlfile.getPath() != null) {
 		path = file.getAbsolutePath();
